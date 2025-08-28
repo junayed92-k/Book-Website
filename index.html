@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNook - Your Literary Sanctuary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-scaleIn {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .star-rating {
+            display: inline-flex;
+        }
+        
+        .star-rating svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        
+        .book-card {
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .author-card {
+            transition: all 0.3s ease;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-blue-800 hero-title">BookNook</div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="#books" class="text-gray-700 hover:text-blue-600 transition-colors">Books</a>
+                    <a href="#reviews" class="text-gray-700 hover:text-blue-600 transition-colors">Reviews</a>
+                    <a href="#authors" class="text-gray-700 hover:text-blue-600 transition-colors">Authors</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-black transition-colors">
+                        Subscribe
+                    </button>
+                    <button class="md:hidden">
+                        <i class="fas fa-bars text-gray-700 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="opacity-0 animate-fadeInUp">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-title">
+                        Discover Your Next<br>Great Read
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Explore thousands of books across all genres. Find your perfect story and get lost in the world of literature.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                            Explore Books
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                            Join Book Club
+                        </button>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-scaleIn">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bab8d7ab-a5d8-42f2-bb20-6eb30fae41f7.png" alt="Stack of books with cozy reading nook background and warm lighting" class="rounded-2xl shadow-2xl animate-float">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books -->
+    <section id="books" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 opacity-0 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 hero-title">Featured Books</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover our curated selection of must-read books across various genres</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Book 1 -->
+                <div class="book-card bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 opacity-0">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ab6eebe9-37e3-42c1-b755-026ec5c954e5.png" alt="Mysterious fantasy book cover with ancient ruins and magical symbols" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">The Shadow King</h3>
+                    <p class="text-gray-600 mb-3">By Elena Rivers</p>
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">4.5</span>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">A gripping fantasy adventure through ancient kingdoms and forgotten magic.</p>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-900 transition-colors">
+                        Read More
+                    </button>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 opacity-0" style="animation-delay: 0.2s;">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7b82b53a-039c-4acc-be10-6f0c2898a91d.png" alt="Futuristic sci-fi book cover with spaceships and alien landscape" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Cosmic Horizon</h3>
+                    <p class="text-gray-600 mb-3">By Marcus Chen</p>
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">5.0</span>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">Explore the vastness of space in this epic sci-fi journey across galaxies.</p>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-900 transition-colors">
+                        Read More
+                    </button>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 opacity-0" style="animation-delay: 0.4s;">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b2a5c0b0-0517-4a49-8f27-e676c3ebaecd.png" alt="Historical romance novel cover with elegant period costume and mansion" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Echoes of Love</h3>
+                    <p class="text-gray-600 mb-3">By Sophia Williams</p>
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">4.0</span>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">A timeless romance set against the backdrop of 19th century England.</p>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-900 transition-colors">
+                        Read More
+                    </button>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 opacity-0" style="animation-delay: 0.6s;">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6b8517f0-46e2-4825-b970-05051e63f2d8.png" alt="Thriller mystery book cover with dark alley and suspenseful atmosphere" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Silent Witness</h3>
+                    <p class="text-gray-600 mb-3">By David Parker</p>
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">4.5</span>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">A psychological thriller that will keep you guessing until the very end.</p>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-900 transition-colors">
+                        Read More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 opacity-0 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 hero-title">What Readers Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover why thousands of readers love our book recommendations</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 opacity-0 review-card">
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">5.0</span>
+                    </div>
+                    
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        "BookNook has completely transformed my reading habits. The recommendations are spot-on and I've discovered so many amazing authors!"
+                    </p>
+                    
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ed5607f6-a677-4b18-93ef-9537a86bb218.png" alt="Sarah Johnson - Avid reader and book club member with friendly smile" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-500">Book Club Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 opacity-0 review-card" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">4.5</span>
+                    </div>
+                    
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        "The quality of books and the community here is incredible. I've found my reading soulmates through this platform."
+                    </p>
+                    
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5022b178-4f8e-4e3e-819f-73622668c02d.png" alt="Michael Chen - Literature enthusiast with glasses and thoughtful expression" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Michael Chen</h4>
+                            <p class="text-sm text-gray-500">Literature Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 opacity-0 review-card" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-4">
+                        <div class="star-rating text-yellow-400 mr-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">5.0</span>
+                    </div>
+                    
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        "As a busy professional, BookNook helps me find quality books quickly. The personalized recommendations are always perfect!"
+                    </p>
+                    
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/78a2a234-472b-4022-95de-94077d5a7ef1.png" alt="Emily Rodriguez - Professional reader with modern office background" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Emily Rodriguez</h4>
+                            <p class="text-sm text-gray-500">Professional Reader</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Authors -->
+    <section id="authors" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 opacity-0 animate-fadeInUp">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 hero-title">Meet Our Authors</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover the talented writers behind your favorite stories</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Author 1 -->
+                <div class="author-card bg-gray-50 rounded-2xl p-6 text-center transform transition-all duration-300 opacity-0">
+                    <div class="w-24 h-24 mx-auto mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2b8e0022-e4e3-4c34-a31d-acb8290b01bc.png" alt="Elena Rivers - Fantasy author with creative background and warm smile" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Elena Rivers</h3>
+                    <p class="text-blue-600 mb-3">Fantasy Author</p>
+                    <p class="text-gray-600 text-sm">112 Published Books</p>
+                    <div class="mt-4">
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-goodreads"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Author 2 -->
+                <div class="author-card bg-gray-50 rounded-2xl p-6 text-center transform transition-all duration-300 opacity-0" style="animation-delay: 0.2s;">
+                    <div class="w-24 h-24 mx-auto mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ea3968c-ccce-4e13-8f4a-b9f168c9c657.png" alt="Marcus Chen - Sci-fi author with futuristic elements and professional appearance" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Marcus Chen</h3>
+                    <p class="text-blue-600 mb-3">Science Fiction</p>
+                    <p class="text-gray-600 text-sm">78 Published Books</p>
+                    <div class="mt-4">
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-goodreads"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Author 3 -->
+                <div class="author-card bg-gray-50 rounded-2xl p-6 text-center transform transition-all duration-300 opacity-0" style="animation-delay: 0.4s;">
+                    <div class="w-24 h-24 mx-auto mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b2a5c0b0-0517-4a49-8f27-e676c3ebaecd.png" alt="Sophia Williams - Romance novelist with elegant style and warm personality" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sophia Williams</h3>
+                    <p class="text-blue-600 mb-3">Romance Novelist</p>
+                    <p class="text-gray-600 text-sm">95 Published Books</p>
+                    <div class="mt-4">
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-goodreads"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Author 4 -->
+                <div class="author-card bg-gray-50 rounded-2xl p-6 text-center transform transition-all duration-300 opacity-0" style="animation-delay: 0.6s;">
+                    <div class="w-24 h-24 mx-auto mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6b8517f0-46e2-4825-b970-05051e63f2d8.png" alt="David Parker - Thriller author with mysterious atmosphere and intense expression" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">David Parker</h3>
+                    <p class="text-blue-600 mb-3">Thriller Writer</p>
+                    <p class="text-gray-600 text-sm">10 Published Books</p>
+                    <div class="mt-4">
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-amazon"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-goodreads"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate all elements with Intersection Observer
+            const animatedElements = document.querySelectorAll('.opacity-0');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.style.animationDelay || '0s';
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            if (entry.target.classList.contains('animate-fadeInUp')) {
+                                entry.target.classList.add('animate-fadeInUp');
+                            }
+                            if (entry.target.classList.contains('animate-scaleIn')) {
+                                entry.target.classList.add('animate-scaleIn');
+                            }
+                        }, parseFloat(delay) * 1000);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle (simplified)
+            document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+                alert('Mobile menu would open here. This is a demonstration.');
+            });
+        });
+    </script>
+
+</body>
+</html>
